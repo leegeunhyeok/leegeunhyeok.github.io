@@ -92,3 +92,39 @@ class InteractionManager {
 }
 
 const manager = new InteractionManager();
+
+manager
+  .addSection(
+    new StickySection('section.main-section', 5, [
+      {
+        target: '.message.a',
+        initialStyle: {
+          opacity: 0,
+        },
+        effects: [
+          {
+            values: [0, 1],
+            enter: [0.1, 0.3],
+            exit: [0.35, 0.5],
+            style: 'opacity',
+          },
+        ],
+      },
+      {
+        target: '.message.b',
+        initialStyle: {
+          opacity: 0,
+        },
+        effects: [
+          {
+            values: [0, 1],
+            enter: [0.55, 0.7],
+            exit: [0.8, 0.9],
+            style: 'opacity',
+          },
+        ],
+      },
+    ]),
+  );
+
+window.onload = () => manager.initialize();
